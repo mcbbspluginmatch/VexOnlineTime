@@ -138,7 +138,7 @@ public class VexEvent implements Listener {
             List<String> timeList = new ArrayList<>(playerYml.getStringList("list"));
             //判断是否已经领取
             if(!timeList.contains(timeConfig.getId())){
-                if(MainPlugin.playerTimeMap.get(player.getName())>=timeConfig.getTime()){
+                if(MainPlugin.PLAYER_TIME_MAP.get(player.getName())>=timeConfig.getTime()){
                     //配置保存
                     timeList.add(timeConfig.getId());
                     playerYml.set("list",timeList);

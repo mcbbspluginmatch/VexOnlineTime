@@ -34,7 +34,7 @@ public class TimeGui {
         gui.addComponent(new VexText(titleConfig.getX(),titleConfig.getY(), Arrays.asList(titleConfig.getTitle()),1.5));
         //设置playerTitle
         PlayerTitleConfig playerTitleConfig = PlayerTitleConfig.getPlayerTitleConfig();
-        String title = playerTitleConfig.getTitle().replace("%time%", ""+MainPlugin.playerTimeMap.get(p.getName()));
+        String title = playerTitleConfig.getTitle().replace("%time%", ""+MainPlugin.PLAYER_TIME_MAP.get(p.getName()));
         title = "§0§0§0§0"+title;
         gui.addComponent(new VexText(playerTitleConfig.getX(),playerTitleConfig.getY(), Arrays.asList(title)));
         //设置内容

@@ -1,0 +1,14 @@
+name: VexOnlineTime
+main: com.xymc.vexonlinetime.main.MainPlugin
+version: 1.2
+author: GePao
+depend: [VexView]
+commands:
+  xytime:
+    description: "你自己猜"
+    usage: /xytime
+    permission: "xytime.use"
+    permission-message: "无权限使用"
+permissions:
+    xytime.use:
+        default: true

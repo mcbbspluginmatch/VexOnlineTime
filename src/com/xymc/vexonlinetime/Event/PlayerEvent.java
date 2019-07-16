@@ -38,7 +38,7 @@ public class PlayerEvent implements Listener {
         }
         Date date = new Date();
         if(date.getDate()==playerYml.getInt("date.day") && ((date.getMonth()+1)==playerYml.getInt("date.month"))){
-            MainPlugin.playerTimeMap.put(player.getName(),playerYml.getInt("time"));
+            MainPlugin.PLAYER_TIME_MAP.put(player.getName(),playerYml.getInt("time"));
         }else{
             playerYml.set("date.day", date.getDate());
             playerYml.set("date.month",date.getMonth()+1);
@@ -49,7 +49,7 @@ public class PlayerEvent implements Listener {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            MainPlugin.playerTimeMap.put(player.getName(),0);
+            MainPlugin.PLAYER_TIME_MAP.put(player.getName(),0);
         }
     }
     @EventHandler
@@ -58,14 +58,14 @@ public class PlayerEvent implements Listener {
         File data = new File(MainPlugin.plugin.getDataFolder(),"Data");
         File playerDataFile = new File(data,player.getName()+".yml");
         YamlConfiguration playerYml = YamlConfiguration.loadConfiguration(playerDataFile);
-        if(MainPlugin.playerTimeMap.containsKey(player.getName()) && MainPlugin.playerTimeMap.get(player.getName())>=0){
-            playerYml.set("time",MainPlugin.playerTimeMap.get(player.getName()));
+        if(MainPlugin.PLAYER_TIME_MAP.containsKey(player.getName()) && MainPlugin.PLAYER_TIME_MAP.get(player.getName())>=0){
+            playerYml.set("time",MainPlugin.PLAYER_TIME_MAP.get(player.getName()));
             try {
                 playerYml.save(playerDataFile);
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
-        MainPlugin.playerTimeMap.remove(player.getName());
+        MainPlugin.PLAYER_TIME_MAP.remove(player.getName());
     }
 }

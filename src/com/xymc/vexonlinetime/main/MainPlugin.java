@@ -19,9 +19,9 @@ import java.util.*;
 
 public class MainPlugin extends JavaPlugin {
     public static MainPlugin plugin;
-    public static HashMap<String,Integer> playerTimeMap = new HashMap<>();
-    private static int day;
-    private static int month;
+    public static HashMap<String,Integer> PLAYER_TIME_MAP = new HashMap<>();
+    private static int DAY;
+    private static int MONTH;
     @Override
     public void onEnable(){
         System.out.println("[VexOnlineTime] 插件加载中......");
@@ -54,26 +54,26 @@ public class MainPlugin extends JavaPlugin {
         for(Player player:getServer().getOnlinePlayers()){
             File playerDataFile = new File(new File(MainPlugin.plugin.getDataFolder(),"Data"),player.getName()+".yml");
             YamlConfiguration playerYml = YamlConfiguration.loadConfiguration(playerDataFile);
-            MainPlugin.playerTimeMap.put(player.getName(),playerYml.getInt("time"));
+            MainPlugin.PLAYER_TIME_MAP.put(player.getName(),playerYml.getInt("time"));
         }
         /*time*/
         new BukkitRunnable(){
             @Override
             public void  run(){
                 Date date = new Date();
-                if(date.getDate()==MainPlugin.day && ((date.getMonth()+1)==MainPlugin.month)){
+                if(date.getDate()==MainPlugin.DAY && ((date.getMonth()+1)==MainPlugin.MONTH)){
                     for(Player player:getServer().getOnlinePlayers()){
-                        if(MainPlugin.playerTimeMap.containsKey(player.getName())){
-                            MainPlugin.playerTimeMap.put(player.getName(),MainPlugin.playerTimeMap.get(player.getName())+1);
+                        if(MainPlugin.PLAYER_TIME_MAP.containsKey(player.getName())){
+                            MainPlugin.PLAYER_TIME_MAP.put(player.getName(),MainPlugin.PLAYER_TIME_MAP.get(player.getName())+1);
                         }
                     }
                 }else{
-                    MainPlugin.day = date.getDate();
-                    MainPlugin.month = date.getMonth()+1;
-                    System.out.println("[VexOnlineTime] 日期变更,当前时间"+month+"月"+day+"日");
+                    MainPlugin.DAY = date.getDate();
+                    MainPlugin.MONTH = date.getMonth()+1;
+                    System.out.println("[VexOnlineTime] 日期变更,当前时间"+MONTH+"月"+DAY+"日");
                     for(Player player:getServer().getOnlinePlayers()){
                         //在线玩家time设为0
-                        MainPlugin.playerTimeMap.put(player.getName(),0);
+                        MainPlugin.PLAYER_TIME_MAP.put(player.getName(),0);
                         //配置文件中的time和list设为0
                         File data = new File(MainPlugin.plugin.getDataFolder(),"Data");
                         File playerDataFile = new File(data,player.getName()+".yml");
@@ -97,8 +97,8 @@ public class MainPlugin extends JavaPlugin {
         for(Player player:getServer().getOnlinePlayers()){
             File playerDataFile = new File(new File(MainPlugin.plugin.getDataFolder(),"Data"),player.getName()+".yml");
             YamlConfiguration playerYml = YamlConfiguration.loadConfiguration(playerDataFile);
-            if(MainPlugin.playerTimeMap.containsKey(player.getName())){
-                playerYml.set("time",MainPlugin.playerTimeMap.get(player.getName()));
+            if(MainPlugin.PLAYER_TIME_MAP.containsKey(player.getName())){
+                playerYml.set("time",MainPlugin.PLAYER_TIME_MAP.get(player.getName()));
                 try {
                     playerYml.save(playerDataFile);
                 } catch (IOException e) {
@@ -218,7 +218,7 @@ public class MainPlugin extends JavaPlugin {
         }
         /*time加载*/
         Date date = new Date();
-        MainPlugin.day = date.getDate();
-        MainPlugin.month = date.getMonth()+1;
+        MainPlugin.DAY = date.getDate();
+        MainPlugin.MONTH = date.getMonth()+1;
     }
 }

@@ -1,0 +1,125 @@
+Gui:
+  url: "[local]005-3.png"
+  x: -1
+  y: -1
+  width: 400
+  height: 200
+  xshow: 400
+  yshow: 200
+Title:
+  x: -1
+  y: 16
+  text: "§a『§f每日在线奖励§a』"
+PlayerTitle:
+  x: 285
+  y: 16
+  text: "§b§l当前:§f%time%分钟"
+StateImage:
+  success:
+    url: "[local]success.png"
+    x: -1
+    y: -1
+    xshow: 130
+    yshow: 70
+  fail:
+    url: "[local]fail.png"
+    x: -1
+    y: -1
+    xshow: 130
+    yshow: 70
+Message:
+  x: -1
+  y: 140
+Button:
+  checkedUrl: "[local]check.png"
+  defaultUrl: "[local]def.png"
+  unclickable: "[local]noclick.png"
+  xshow: 50
+  yshow: 16
+  buttonLocation:
+    button1:
+      x: 26
+      y: 167
+    button2:
+      x: 126
+      y: 167
+    button3:
+      x: 226
+      y: 167
+    button4:
+      x: 326
+      y: 167
+TimeList:
+  t1:
+    title:
+      x: 28
+      y: 47
+      text: "§a30分钟奖励"
+    desc:
+      x: 20
+      y: 60
+      text:
+      -  "§f奖励如下:"
+      -  "§8- §a泥土 §7x64"
+      -  "§8- §a钻石 §7x64"
+      -  "§8- §a石头 §7x64"
+    time: 30
+    command:
+    -  "say %player% 成功领取30分钟奖励"
+    item:
+    - "items1"
+    - "items2"
+  t2:
+    title:
+      x: 128
+      y: 47
+      text: "§e60分钟奖励"
+    desc:
+      x: 120
+      y: 60
+      text:
+      -  "§f奖励如下:"
+      -  "§8- t2奖励"
+      -  "§8- t2奖励"
+      -  "§8- t2奖励"
+    time: 60
+    command:
+    -  "say %player% 成功领取60分钟奖励"
+    item:
+    - "items2"
+  t3:
+    title:
+      x: 228
+      y: 47
+      text: "§d180分钟奖励"
+    desc:
+      x: 220
+      y: 60
+      text:
+      -  "§f奖励如下:"
+      -  "§8- 描述2"
+      -  "§8- 描述3"
+      -  "§8- 描述4"
+    time: 180
+    command:
+    -  "say %player% 成功领取180分钟奖励"
+    item:
+    - "items4"
+  t4:
+    title:
+      x: 328
+      y: 47
+      text: "§9200分钟奖励"
+    desc:
+      x: 320
+      y: 60
+      text:
+      -  "§f奖励如下:"
+      -  "§8- 描述2"
+      -  "§8- 描述3"
+      -  "§8- 描述4"
+    time: 180
+    command:
+    -  "say %player% 成功领取200分钟奖励"
+    item:
+    - "items1"
