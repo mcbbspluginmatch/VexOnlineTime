@@ -7,32 +7,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f9533777-392c-42ac-a776-07a81818e2ff" name="默认的" comment="默认的">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/VexOnlineTime.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/VexOnlineTime/com/xymc/vexonlinetime/Event/PlayerEvent.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/VexOnlineTime/com/xymc/vexonlinetime/Event/VexEvent$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/VexOnlineTime/com/xymc/vexonlinetime/Event/VexEvent$2.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/VexOnlineTime/com/xymc/vexonlinetime/Event/VexEvent$3.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/VexOnlineTime/com/xymc/vexonlinetime/Event/VexEvent.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/VexOnlineTime/com/xymc/vexonlinetime/command/PlayerCommand.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/VexOnlineTime/com/xymc/vexonlinetime/gui/TimeGui.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/VexOnlineTime/com/xymc/vexonlinetime/main/MainPlugin$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/VexOnlineTime/com/xymc/vexonlinetime/main/MainPlugin.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/VexOnlineTime/com/xymc/vexonlinetime/model/ClickableVexButtonConfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/VexOnlineTime/com/xymc/vexonlinetime/model/GuiConfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/VexOnlineTime/com/xymc/vexonlinetime/model/ItemConfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/VexOnlineTime/com/xymc/vexonlinetime/model/MessageConfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/VexOnlineTime/com/xymc/vexonlinetime/model/PlayerTitleConfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/VexOnlineTime/com/xymc/vexonlinetime/model/StateImgConfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/VexOnlineTime/com/xymc/vexonlinetime/model/TimeConfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/VexOnlineTime/com/xymc/vexonlinetime/model/TitleConfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/VexOnlineTime/config.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/VexOnlineTime/message.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/VexOnlineTime/plugin.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/xymc/vexonlinetime/Event/PlayerEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/xymc/vexonlinetime/Event/PlayerEvent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/xymc/vexonlinetime/Event/VexEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/xymc/vexonlinetime/Event/VexEvent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/xymc/vexonlinetime/gui/TimeGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/xymc/vexonlinetime/gui/TimeGui.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/xymc/vexonlinetime/main/MainPlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/xymc/vexonlinetime/main/MainPlugin.java" afterDir="false" />
@@ -48,56 +22,7 @@
     <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/xymc/vexonlinetime/gui/TimeGui.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="149">
-              <caret line="36" column="99" selection-start-line="36" selection-start-column="99" selection-end-line="36" selection-end-column="99" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/xymc/vexonlinetime/main/MainPlugin.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="30" column="19" lean-forward="true" selection-start-line="30" selection-start-column="19" selection-end-line="30" selection-end-column="19" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/xymc/vexonlinetime/Event/PlayerEvent.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1140">
-              <caret line="68" column="34" selection-start-line="68" selection-start-column="34" selection-end-line="68" selection-end-column="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/xymc/vexonlinetime/Event/VexEvent.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="249">
-              <caret line="145" column="55" lean-forward="true" selection-start-line="145" selection-start-column="55" selection-end-line="145" selection-end-column="55" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/xymc/vexonlinetime/command/PlayerCommand.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="920">
-              <caret line="79" column="29" selection-start-line="79" selection-start-column="29" selection-end-line="79" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -127,8 +52,8 @@
         <option value="$PROJECT_DIR$/src/com/xymc/vexonlinetime/model/ClickableVexButtonConfig.java" />
         <option value="$PROJECT_DIR$/src/plugin.yml" />
         <option value="$PROJECT_DIR$/src/com/xymc/vexonlinetime/Event/PlayerEvent.java" />
-        <option value="$PROJECT_DIR$/src/com/xymc/vexonlinetime/Event/VexEvent.java" />
         <option value="$PROJECT_DIR$/src/com/xymc/vexonlinetime/gui/TimeGui.java" />
+        <option value="$PROJECT_DIR$/src/com/xymc/vexonlinetime/Event/VexEvent.java" />
         <option value="$PROJECT_DIR$/src/com/xymc/vexonlinetime/main/MainPlugin.java" />
       </list>
     </option>
@@ -151,63 +76,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="VexOnlineTime" type="b2602c69:ProjectViewProjectNode" />
-              <item name="VexOnlineTime" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="VexOnlineTime" type="b2602c69:ProjectViewProjectNode" />
-              <item name="VexOnlineTime" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="VexOnlineTime" type="b2602c69:ProjectViewProjectNode" />
-              <item name="VexOnlineTime" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="vexonlinetime" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="VexOnlineTime" type="b2602c69:ProjectViewProjectNode" />
-              <item name="VexOnlineTime" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="vexonlinetime" type="462c0819:PsiDirectoryNode" />
-              <item name="command" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="VexOnlineTime" type="b2602c69:ProjectViewProjectNode" />
-              <item name="VexOnlineTime" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="vexonlinetime" type="462c0819:PsiDirectoryNode" />
-              <item name="Event" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="VexOnlineTime" type="b2602c69:ProjectViewProjectNode" />
-              <item name="VexOnlineTime" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="vexonlinetime" type="462c0819:PsiDirectoryNode" />
-              <item name="gui" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="VexOnlineTime" type="b2602c69:ProjectViewProjectNode" />
-              <item name="VexOnlineTime" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="vexonlinetime" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="VexOnlineTime" type="b2602c69:ProjectViewProjectNode" />
-              <item name="VexOnlineTime" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="vexonlinetime" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
+      <pane id="ProjectPane" />
       <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
@@ -296,7 +165,7 @@
       <option name="presentableId" value="Default" />
       <updated>1563040258137</updated>
       <workItem from="1563196106133" duration="2012000" />
-      <workItem from="1563279849343" duration="8215000" />
+      <workItem from="1563279849343" duration="9836000" />
     </task>
     <task id="LOCAL-00001" summary="默认的">
       <created>1563197493255</created>
@@ -312,15 +181,21 @@
       <option name="project" value="LOCAL" />
       <updated>1563286152447</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="默认的">
+      <created>1563289593369</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1563289593369</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10227000" />
+    <option name="totallyTimeSpent" value="11848000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1456" height="878" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.256447" />
       <window_info id="Structure" order="1" weight="0.25" />
@@ -340,13 +215,13 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Messages" order="8" sideWeight="0.48853868" visible="true" weight="0.3293011" />
+      <window_info anchor="bottom" id="Messages" order="8" sideWeight="0.48352435" weight="0.3293011" />
       <window_info anchor="bottom" id="运行" order="9" />
       <window_info anchor="bottom" id="Database Changes" order="10" />
       <window_info anchor="bottom" id="JRebel Console" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="12" />
       <window_info anchor="bottom" id="Terminal" order="13" />
-      <window_info anchor="bottom" id="Event Log" order="14" sideWeight="0.5114613" side_tool="true" visible="true" weight="0.3293011" />
+      <window_info anchor="bottom" id="Event Log" order="14" sideWeight="0.5164756" side_tool="true" visible="true" weight="0.3293011" />
       <window_info anchor="bottom" id="消息" order="15" sideWeight="0.23402777" visible="true" weight="0.16756757" />
       <window_info anchor="bottom" id="调试" order="16" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -452,27 +327,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/xymc/vexonlinetime/gui/TimeGui.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="36" column="99" selection-start-line="36" selection-start-column="99" selection-end-line="36" selection-end-column="99" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/xymc/vexonlinetime/Event/VexEvent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="145" column="55" lean-forward="true" selection-start-line="145" selection-start-column="55" selection-end-line="145" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/xymc/vexonlinetime/Event/PlayerEvent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1140">
-          <caret line="68" column="34" selection-start-line="68" selection-start-column="34" selection-end-line="68" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/xymc/vexonlinetime/command/PlayerCommand.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="920">
@@ -480,13 +334,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/xymc/vexonlinetime/Event/PlayerEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="389">
+          <caret line="68" column="34" selection-start-line="68" selection-start-column="34" selection-end-line="68" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/xymc/vexonlinetime/Event/VexEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="24" column="53" selection-start-line="24" selection-start-column="42" selection-end-line="24" selection-end-column="53" />
+          <folding>
+            <element signature="e#6520#7989#0" expanded="true" />
+            <element signature="e#7988#7989#0" expanded="true" />
+            <element signature="e#8316#8721#0" expanded="true" />
+            <element signature="e#8720#8721#0" expanded="true" />
+            <element signature="e#9047#9426#0" expanded="true" />
+            <element signature="e#9425#9426#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/xymc/vexonlinetime/main/MainPlugin.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="30" column="19" lean-forward="true" selection-start-line="30" selection-start-column="19" selection-end-line="30" selection-end-column="19" />
+        <state relative-caret-position="3580">
+          <caret line="218" column="9" lean-forward="true" selection-start-line="218" selection-start-column="9" selection-end-line="218" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/xymc/vexonlinetime/gui/TimeGui.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="58" column="34" selection-start-line="58" selection-start-column="34" selection-end-line="58" selection-end-column="34" />
         </state>
       </provider>
     </entry>
