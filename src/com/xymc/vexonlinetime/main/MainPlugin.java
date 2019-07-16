@@ -55,6 +55,7 @@ public class MainPlugin extends JavaPlugin {
             File playerDataFile = new File(new File(MainPlugin.plugin.getDataFolder(),"Data"),player.getName()+".yml");
             YamlConfiguration playerYml = YamlConfiguration.loadConfiguration(playerDataFile);
             MainPlugin.PLAYER_TIME_MAP.put(player.getName(),playerYml.getInt("time"));
+            VexEvent.playerPages.put(player.getName(),1);
         }
         /*time*/
         new BukkitRunnable(){

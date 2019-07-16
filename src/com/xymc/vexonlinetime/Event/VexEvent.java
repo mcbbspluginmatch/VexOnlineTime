@@ -36,13 +36,13 @@ public class VexEvent implements Listener {
     @EventHandler
     public void clickLeftRightEvent(ButtonClickEvent event){
         Player player = event.getPlayer();
-        if(event.getButtonID().equals("leftButton") || event.getButtonID().equals("rightButton")){
+        if(event.getButtonID().equals(10) || event.getButtonID().equals(11)){
             //获取
             OpenedVexGui openedVexGui = VexViewAPI.getPlayerCurrentGui(player);
             //获取页数
             int page = playerPages.get(player.getName());
             //判断点击左侧
-            if(event.getButtonID().equals("leftButton")){
+            if(event.getButtonID().equals(10)){
                 //点击左边
                 if(playerPages.get(player.getName())>1){
                     //修改页数
@@ -71,7 +71,7 @@ public class VexEvent implements Listener {
             }
             ////////////////////////////////////////////////////////////////////////////////////////////////////////////
             //判断点击右侧
-            if(event.getButtonID().equals("rightButton")){
+            if(event.getButtonID().equals(11)){
                 //点击右边
                 if(TimeConfig.getTimeConfigMap().size()>(page*4)){
                     //修改页数
@@ -111,15 +111,6 @@ public class VexEvent implements Listener {
         if(event.getButtonID().equals(1)||event.getButtonID().equals(2)||event.getButtonID().equals(3)||event.getButtonID().equals(4)){
             int timeId = (playerPages.get(player.getName())-1)*4;
             timeId = timeId+(int)event.getButtonID();
-//            if(event.getButtonID().equals("time1")){
-//                timeId = timeId+1;
-//            }else if(event.getButtonID().equals("time2")){
-//                timeId = timeId+2;
-//            }else if(event.getButtonID().equals("time3")){
-//                timeId = timeId+3;
-//            }else if(event.getButtonID().equals("time4")){
-//                timeId = timeId+4;
-//            }
             //领取的奖励实例
             TimeConfig timeConfig;
             //没有奖励判断

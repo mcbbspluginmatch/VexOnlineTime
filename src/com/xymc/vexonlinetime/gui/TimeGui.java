@@ -67,9 +67,9 @@ public class TimeGui {
         }
         //切换按钮
         String leftDefButtonUrl = "https://s2.ax1x.com/2019/07/14/Z5FMZj.png";
-        VexButton leftButton = new VexButton("leftButton", "", leftDefButtonUrl, leftDefButtonUrl, 28, 10, 20, 22);
+        VexButton leftButton = new VexButton(10, "", leftDefButtonUrl, leftDefButtonUrl, 28, 10, 20, 22);
         String rightDefButtonUrl = "https://s2.ax1x.com/2019/07/14/Z5FQds.png";
-        VexButton rightButton = new VexButton("rightButton", "", rightDefButtonUrl, rightDefButtonUrl, 352, 10, 20, 22);
+        VexButton rightButton = new VexButton(11, "", rightDefButtonUrl, rightDefButtonUrl, 352, 10, 20, 22);
         gui.addComponent(leftButton);
         gui.addComponent(rightButton);
         return gui;
