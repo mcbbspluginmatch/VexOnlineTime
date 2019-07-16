@@ -33,6 +33,7 @@ Message:
 Button:
   checkedUrl: "[local]check.png"
   defaultUrl: "[local]def.png"
+  unclickable: "[local]noclick.png"
   xshow: 50
   yshow: 16
   buttonLocation:

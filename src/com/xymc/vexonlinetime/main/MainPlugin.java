@@ -4,7 +4,6 @@ import com.xymc.vexonlinetime.Event.PlayerEvent;
 import com.xymc.vexonlinetime.Event.VexEvent;
 import com.xymc.vexonlinetime.command.PlayerCommand;
 import com.xymc.vexonlinetime.model.*;
-import lk.vexview.gui.components.VexButton;
 import lk.vexview.gui.components.VexImage;
 import lk.vexview.gui.components.VexText;
 import org.bukkit.Bukkit;
@@ -21,8 +20,8 @@ import java.util.*;
 public class MainPlugin extends JavaPlugin {
     public static MainPlugin plugin;
     public static HashMap<String,Integer> playerTimeMap = new HashMap<>();
-    public static int day;
-    public static int month;
+    private static int day;
+    private static int month;
     @Override
     public void onEnable(){
         System.out.println("[VexOnlineTime] 插件加载中......");
@@ -51,6 +50,12 @@ public class MainPlugin extends JavaPlugin {
             /*load*/
             loadConfig();
         }
+        /*玩家加载*/
+        for(Player player:getServer().getOnlinePlayers()){
+            File playerDataFile = new File(new File(MainPlugin.plugin.getDataFolder(),"Data"),player.getName()+".yml");
+            YamlConfiguration playerYml = YamlConfiguration.loadConfiguration(playerDataFile);
+            MainPlugin.playerTimeMap.put(player.getName(),playerYml.getInt("time"));
+        }
         /*time*/
         new BukkitRunnable(){
             @Override
@@ -58,7 +63,9 @@ public class MainPlugin extends JavaPlugin {
                 Date date = new Date();
                 if(date.getDate()==MainPlugin.day && ((date.getMonth()+1)==MainPlugin.month)){
                     for(Player player:getServer().getOnlinePlayers()){
-                        MainPlugin.playerTimeMap.put(player.getName(),MainPlugin.playerTimeMap.get(player.getName())+1);
+                        if(MainPlugin.playerTimeMap.containsKey(player.getName())){
+                            MainPlugin.playerTimeMap.put(player.getName(),MainPlugin.playerTimeMap.get(player.getName())+1);
+                        }
                     }
                 }else{
                     MainPlugin.day = date.getDate();
@@ -84,7 +91,24 @@ public class MainPlugin extends JavaPlugin {
         }.runTaskTimerAsynchronously(this,0,60*20);
 
     }
-    public boolean hasVV(){
+    @Override
+    public void onDisable(){
+        Bukkit.getConsoleSender().sendMessage("[VexOnlineTime] §e插件卸载,保存数据中...");
+        for(Player player:getServer().getOnlinePlayers()){
+            File playerDataFile = new File(new File(MainPlugin.plugin.getDataFolder(),"Data"),player.getName()+".yml");
+            YamlConfiguration playerYml = YamlConfiguration.loadConfiguration(playerDataFile);
+            if(MainPlugin.playerTimeMap.containsKey(player.getName())){
+                playerYml.set("time",MainPlugin.playerTimeMap.get(player.getName()));
+                try {
+                    playerYml.save(playerDataFile);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        Bukkit.getConsoleSender().sendMessage("[VexOnlineTime] §e玩家数据保存完成...");
+    }
+    private boolean hasVV(){
         if(getServer().getPluginManager().getPlugin("VexView")!=null){
             return true;
         }else{
@@ -179,19 +203,18 @@ public class MainPlugin extends JavaPlugin {
 //            System.out.println(key+MessageConfig.getVexTextMap().get(key).getVexText().getText().get(0));
         }
         /*按钮设置*/
-        String defUrl = yml.getString("Button.defaultUrl");
-        String checkUrl = yml.getString("Button.checkedUrl");
-        int buttonXshow = yml.getInt("Button.xshow");
-        int buttonYshow = yml.getInt("Button.yshow");
+        ClickableVexButtonConfig.setDefUrl(yml.getString("Button.defaultUrl"));
+        ClickableVexButtonConfig.setCheckUrl(yml.getString("Button.checkedUrl"));
+        ClickableVexButtonConfig.setNotCheckUrl(yml.getString("Button.unclickable"));
+        ClickableVexButtonConfig.setButtonXshow(yml.getInt("Button.xshow"));
+        ClickableVexButtonConfig.setButtonYshow(yml.getInt("Button.yshow"));
         for(String key:yml.getConfigurationSection("Button.buttonLocation").getKeys(false)){
-            String id = key.replace("button","time");
-            ButtonConfig buttonConfig = new ButtonConfig();
-            buttonConfig.setId(id);
-            int buttonX = yml.getInt("Button.buttonLocation."+key+".x");
-            int buttonY = yml.getInt("Button.buttonLocation."+key+".y");
-            buttonConfig.setVexButton(new VexButton(id,"",defUrl,checkUrl,buttonX,buttonY,buttonXshow,buttonYshow));
-            ButtonConfig.getVexButtonMap().put(id,buttonConfig);
-//            System.out.println(key+"-"+id+"-"+buttonX+"-"+buttonY);
+            int id = Integer.parseInt(key.replace("button",""));
+            ClickableVexButtonConfig clickableVexButtonConfig = new ClickableVexButtonConfig();
+            clickableVexButtonConfig.setId(id);
+            clickableVexButtonConfig.setX(yml.getInt("Button.buttonLocation."+key+".x"));
+            clickableVexButtonConfig.setY(yml.getInt("Button.buttonLocation."+key+".y"));
+            ClickableVexButtonConfig.getVexButtonConfigMap().put(id,clickableVexButtonConfig);
         }
         /*time加载*/
         Date date = new Date();

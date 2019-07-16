@@ -1,6 +1,6 @@
 name: VexOnlineTime
 main: com.xymc.vexonlinetime.main.MainPlugin
-version: 1.0
+version: 1.2
 author: GePao
 depend: [VexView]
 commands:

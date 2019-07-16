@@ -6,8 +6,7 @@ import lk.vexview.api.VexViewAPI;
 import lk.vexview.event.ButtonClickEvent;
 import lk.vexview.event.gui.VexGuiCloseEvent;
 import lk.vexview.gui.OpenedVexGui;
-import lk.vexview.gui.components.VexComponents;
-import lk.vexview.gui.components.VexText;
+import lk.vexview.gui.components.*;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
@@ -19,6 +18,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 import java.io.File;
 import java.io.IOException;
+import java.sql.Time;
 import java.util.*;
 
 public class VexEvent implements Listener {
@@ -41,32 +41,26 @@ public class VexEvent implements Listener {
             OpenedVexGui openedVexGui = VexViewAPI.getPlayerCurrentGui(player);
             //获取页数
             int page = playerPages.get(player.getName());
+            //判断点击左侧
             if(event.getButtonID().equals("leftButton")){
                 //点击左边
                 if(playerPages.get(player.getName())>1){
                     //修改页数
                     playerPages.put(player.getName(),page-1);
                     //删除内容
-                    List<VexComponents> vexComponentsList = new ArrayList<>(openedVexGui.getVexGui().getComponents());
-                    for(VexComponents vexComponents:vexComponentsList){
-                        if(vexComponents instanceof VexText){
-                            VexText vexText = (VexText) vexComponents;
-                            if(!vexText.getText().get(0).equals(TitleConfig.getTitleConfig().getTitle()) && !vexText.getText().get(0).contains("§0§0§0§0")){
-                                openedVexGui.getVexGui().getComponents().remove(vexText);
-                                openedVexGui.removeDynamicComponent(vexText);
-                            }
-                        }
-                    }
+                    deleteComponents(player);
 //                    System.out.println("第一次-大小:"+openedVexGui.getVexGui().getComponents().size());
+                    //玩家数据
+                    File playerDataFile = new File(new File(MainPlugin.plugin.getDataFolder(),"Data"),player.getName()+".yml");
+                    YamlConfiguration playerYml = YamlConfiguration.loadConfiguration(playerDataFile);
+                    List<String> timeList = new ArrayList<>(playerYml.getStringList("list"));
                     //修改内容
                     for(int i=1;i<=4;i++){
                         int key = (page-2)*4+i;
                         TimeConfig timeConfig;
                         if((timeConfig = TimeConfig.getTimeConfigMap().get(key))!=null){
                             //成功获取到TimeConfig
-//                            System.out.println(timeConfig.toString());
-                            openedVexGui.addDynamicComponent(new VexText(timeConfig.getTitleX(),timeConfig.getTitleY(), Arrays.asList(timeConfig.getTitleText())));
-                            openedVexGui.addDynamicComponent(new VexText(timeConfig.getDescX(),timeConfig.getDescY(),timeConfig.getDescTextList()));
+                            addComponents(player,timeConfig,timeList,i);
                         }
                     }
                 }else{
@@ -76,25 +70,19 @@ public class VexEvent implements Listener {
 //                System.out.println("第二次-大小:"+openedVexGui.getVexGui().getComponents().size());
             }
             ////////////////////////////////////////////////////////////////////////////////////////////////////////////
-            ////////////////////////////////////////////////////////////////////////////////////////////////////////////
-            ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            //判断点击右侧
             if(event.getButtonID().equals("rightButton")){
                 //点击右边
                 if(TimeConfig.getTimeConfigMap().size()>(page*4)){
                     //修改页数
                     playerPages.put(player.getName(),page+1);
                     //删除内容
-                    List<VexComponents> vexComponentsList = new ArrayList<>(openedVexGui.getVexGui().getComponents());
-                    for(VexComponents vexComponents:vexComponentsList){
-                        if(vexComponents instanceof VexText){
-                            VexText vexText = (VexText) vexComponents;
-                            if(!vexText.getText().get(0).equals(TitleConfig.getTitleConfig().getTitle()) && !vexText.getText().get(0).contains("§0§0§0§0")){
-                                openedVexGui.getVexGui().getComponents().remove(vexText);
-                                openedVexGui.removeDynamicComponent(vexText);
-                            }
-                        }
-                    }
+                    deleteComponents(player);
 //                    System.out.println("第一次-大小:"+openedVexGui.getVexGui().getComponents().size());
+                    //玩家数据
+                    File playerDataFile = new File(new File(MainPlugin.plugin.getDataFolder(),"Data"),player.getName()+".yml");
+                    YamlConfiguration playerYml = YamlConfiguration.loadConfiguration(playerDataFile);
+                    List<String> timeList = new ArrayList<>(playerYml.getStringList("list"));
                     //修改内容
                     for(int i=1;i<=4;i++){
                         //获取Key
@@ -102,9 +90,7 @@ public class VexEvent implements Listener {
                         TimeConfig timeConfig;
                         if((timeConfig = TimeConfig.getTimeConfigMap().get(key))!=null){
                             //成功获取到TimeConfig
-//                            System.out.println(timeConfig.toString());
-                            openedVexGui.addDynamicComponent(new VexText(timeConfig.getTitleX(),timeConfig.getTitleY(), Arrays.asList(timeConfig.getTitleText())));
-                            openedVexGui.addDynamicComponent(new VexText(timeConfig.getDescX(),timeConfig.getDescY(),timeConfig.getDescTextList()));
+                            addComponents(player,timeConfig,timeList,i);
                         }else{
                             //为空说明已经获取到最后一个了,直接跳出循环
                             break;
@@ -122,17 +108,18 @@ public class VexEvent implements Listener {
     @EventHandler
     public void clickTimeButtonEvent(ButtonClickEvent event){
         Player player = event.getPlayer();
-        if(event.getButtonID().equals("time1")||event.getButtonID().equals("time2")||event.getButtonID().equals("time3")||event.getButtonID().equals("time4")){
+        if(event.getButtonID().equals(1)||event.getButtonID().equals(2)||event.getButtonID().equals(3)||event.getButtonID().equals(4)){
             int timeId = (playerPages.get(player.getName())-1)*4;
-            if(event.getButtonID().equals("time1")){
-                timeId = timeId+1;
-            }else if(event.getButtonID().equals("time2")){
-                timeId = timeId+2;
-            }else if(event.getButtonID().equals("time3")){
-                timeId = timeId+3;
-            }else if(event.getButtonID().equals("time4")){
-                timeId = timeId+4;
-            }
+            timeId = timeId+(int)event.getButtonID();
+//            if(event.getButtonID().equals("time1")){
+//                timeId = timeId+1;
+//            }else if(event.getButtonID().equals("time2")){
+//                timeId = timeId+2;
+//            }else if(event.getButtonID().equals("time3")){
+//                timeId = timeId+3;
+//            }else if(event.getButtonID().equals("time4")){
+//                timeId = timeId+4;
+//            }
             //领取的奖励实例
             TimeConfig timeConfig;
             //没有奖励判断
@@ -145,8 +132,7 @@ public class VexEvent implements Listener {
             //可操控GUI
             OpenedVexGui openedVexGui = VexViewAPI.getPlayerCurrentGui(player);
             //玩家配置
-            File data = new File(MainPlugin.plugin.getDataFolder(),"Data");
-            File playerDataFile = new File(data,player.getName()+".yml");
+            File playerDataFile = new File(new File(MainPlugin.plugin.getDataFolder(),"Data"),player.getName()+".yml");
             YamlConfiguration playerYml = YamlConfiguration.loadConfiguration(playerDataFile);
             //已经领取的奖励集合
             List<String> timeList = new ArrayList<>(playerYml.getStringList("list"));
@@ -215,6 +201,30 @@ public class VexEvent implements Listener {
                     }
                 }.runTaskLaterAsynchronously(MainPlugin.plugin, 10L*1);
             }
+        }
+    }
+    private void deleteComponents(Player player){
+        OpenedVexGui openedVexGui = VexViewAPI.getPlayerCurrentGui(player);
+        List<VexComponents> vexComponentsList = new ArrayList<>(openedVexGui.getVexGui().getComponents());
+        for(VexComponents vexComponents:vexComponentsList){
+            if(vexComponents instanceof VexText){
+                VexText vexText = (VexText) vexComponents;
+                if(!vexText.getText().get(0).equals(TitleConfig.getTitleConfig().getTitle()) && !vexText.getText().get(0).contains("§0§0§0§0")){
+                    openedVexGui.getVexGui().getComponents().remove(vexText);
+                    openedVexGui.removeDynamicComponent(vexText);
+                }
+            }
+        }
+    }
+    private void addComponents(Player player,TimeConfig timeConfig,List<String> timeList,int i){
+        OpenedVexGui openedVexGui = VexViewAPI.getPlayerCurrentGui(player);
+        openedVexGui.addDynamicComponent(new VexText(timeConfig.getTitleX(),timeConfig.getTitleY(), Arrays.asList(timeConfig.getTitleText())));
+        openedVexGui.addDynamicComponent(new VexText(timeConfig.getDescX(),timeConfig.getDescY(),timeConfig.getDescTextList()));
+        //设置是否可用
+        if(timeList.contains(timeConfig.getId())){
+            openedVexGui.setButtonClickable(i,false);
+        }else{
+            openedVexGui.setButtonClickable(i,true);
         }
     }
 }
